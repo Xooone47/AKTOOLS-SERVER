@@ -1,0 +1,56 @@
+{
+  "name": "aktools-server",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/aktools-server",
+  "projectType": "application",
+  "targets": {
+    "serve": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "python -m aktools",
+        "cwd": "apps/aktools-server"
+      },
+      "configurations": {
+        "development": {
+          "command": "python -m aktools"
+        }
+      }
+    },
+    "install": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "pip install -r requirements.txt",
+        "cwd": "apps/aktools-server"
+      }
+    },
+    "docker-build": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "docker build -t aktools-server:latest .",
+        "cwd": "apps/aktools-server"
+      }
+    },
+    "docker-run": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "docker run -d -p 8080:8080 --name aktools-server aktools-server:latest",
+        "cwd": "apps/aktools-server"
+      },
+      "dependsOn": ["docker-build"]
+    },
+    "docker-stop": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "docker stop aktools-server && docker rm aktools-server"
+      }
+    },
+    "docker-logs": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "docker logs -f aktools-server"
+      }
+    }
+  },
+  "tags": ["type:application", "platform:python"]
+}
+

@@ -1,2 +1,38 @@
-aktools_log.log
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+ENV/
+*.egg-info/
+dist/
+build/
+*.log
+
+# Nx
+.nx/
+node_modules/
 .cursor/
+
+# Package managers
+package-lock.json
+yarn.lock
+# 保留 pnpm-lock.yaml 用于锁定依赖版本
+# pnpm-lock.yaml
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Docker
+.dockerignore

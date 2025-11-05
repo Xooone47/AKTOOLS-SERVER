@@ -1,0 +1,17 @@
+{
+  "name": "aktools-monorepo",
+  "version": "1.0.0",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "dev:api": "nx run aktools-server:serve",
+    "build:api": "nx run aktools-server:build",
+    "docker:build": "nx run aktools-server:docker-build",
+    "docker:run": "nx run aktools-server:docker-run"
+  },
+  "devDependencies": {
+    "@nxlv/python": "^18.1.1",
+    "nx": "^18.3.3"
+  }
+}
+
